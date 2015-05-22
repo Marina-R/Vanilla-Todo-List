@@ -1,8 +1,13 @@
 var text = document.getElementById('textBox');
 var clickButton = document.getElementById('myButton');
 var sectionContent = document.getElementById('just-section');
-var textArray = [];
-var textArray = JSON.parse(localStorage.getItem('list'));
+var textArray;
+
+if (localStorage.getItem('list') == null) {
+	textArray = [];
+} else {
+	textArray = JSON.parse(localStorage.getItem('list'));
+}
 render();
 
 function displayText (e) {
@@ -34,4 +39,3 @@ function render () {
 function storage (textArray) {
 	localStorage.setItem('list', JSON.stringify(textArray));
 }
-
